@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.model.user.mappers.UserTabMapper">
+    <resultMap id="BaseResultMap" type="com.project.model.user.pojo.UserTab">
+        <id column="ID" jdbcType="VARCHAR" property="id"/>
+        <result column="CODE" jdbcType="VARCHAR" property="code"/>
+        <result column="NAME" jdbcType="VARCHAR" property="name"/>
+        <result column="BIRTH_DAY" jdbcType="DATE" property="birthDay"/>
+        <result column="GENDER" jdbcType="VARCHAR" property="gender"/>
+        <result column="CREATE_TIME" jdbcType="DATE" property="createTime"/>
+        <result column="STATUS" jdbcType="VARCHAR" property="status"/>
+        <result column="IS_SYS_USER" jdbcType="DECIMAL" property="isSysUser"/>
+        <result column="IS_TEMP" jdbcType="DECIMAL" property="isTemp"/>
+    </resultMap>
+<!--    <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.platform.core.user.pojo.UserTabWithBLOBs">-->
+<!--        <result column="ABB_NAME" jdbcType="LONGVARCHAR" property="abbName"/>-->
+<!--        <result column="MEMO" jdbcType="LONGVARCHAR" property="memo"/>-->
+<!--    </resultMap>-->
+<!--    <sql id="Base_Column_List">-->
+<!--    ID, CODE, NAME, BIRTH_DAY, GENDER, CREATE_TIME, STATUS, IS_SYS_USER, IS_TEMP-->
+<!--  </sql>-->
+<!--    <sql id="Blob_Column_List">-->
+<!--    ABB_NAME, MEMO-->
+<!--  </sql>-->
+<!--    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">-->
+<!--        select-->
+<!--        <include refid="Base_Column_List"/>-->
+<!--        ,-->
+<!--        <include refid="Blob_Column_List"/>-->
+<!--        from user_tab-->
+<!--        where ID = #{id,jdbcType=VARCHAR}-->
+<!--    </select>-->
+<!--    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">-->
+<!--    delete from user_tab-->
+<!--    where ID = #{id,jdbcType=VARCHAR}-->
+<!--  </delete>-->
+<!--    <insert id="insert" parameterType="com.platform.core.user.pojo.UserTabWithBLOBs">-->
+<!--    insert into user_tab (ID, CODE, NAME, -->
+<!--      BIRTH_DAY, GENDER, CREATE_TIME, -->
+<!--      STATUS, IS_SYS_USER, IS_TEMP, -->
+<!--      ABB_NAME, MEMO)-->
+<!--    values (#{id,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, -->
+<!--      #{birthDay,jdbcType=DATE}, #{gender,jdbcType=VARCHAR}, #{createTime,jdbcType=DATE}, -->
+<!--      #{status,jdbcType=VARCHAR}, #{isSysUser,jdbcType=DECIMAL}, #{isTemp,jdbcType=DECIMAL}, -->
+<!--      #{abbName,jdbcType=LONGVARCHAR}, #{memo,jdbcType=LONGVARCHAR})-->
+<!--  </insert>-->
+<!--    <insert id="insertSelective" parameterType="com.platform.core.user.pojo.UserTabWithBLOBs">-->
+<!--        insert into user_tab-->
+<!--        <trim prefix="(" suffix=")" suffixOverrides=",">-->
+<!--            <if test="id != null">-->
+<!--                ID,-->
+<!--            </if>-->
+<!--            <if test="code != null">-->
+<!--                CODE,-->
+<!--            </if>-->
+<!--            <if test="name != null">-->
+<!--                NAME,-->
+<!--            </if>-->
+<!--            <if test="birthDay != null">-->
+<!--                BIRTH_DAY,-->
+<!--            </if>-->
+<!--            <if test="gender != null">-->
+<!--                GENDER,-->
+<!--            </if>-->
+<!--            <if test="createTime != null">-->
+<!--                CREATE_TIME,-->
+<!--            </if>-->
+<!--            <if test="status != null">-->
+<!--                STATUS,-->
+<!--            </if>-->
+<!--            <if test="isSysUser != null">-->
+<!--                IS_SYS_USER,-->
+<!--            </if>-->
+<!--            <if test="isTemp != null">-->
+<!--                IS_TEMP,-->
+<!--            </if>-->
+<!--            <if test="abbName != null">-->
+<!--                ABB_NAME,-->
+<!--            </if>-->
+<!--            <if test="memo != null">-->
+<!--                MEMO,-->
+<!--            </if>-->
+<!--        </trim>-->
+<!--        <trim prefix="values (" suffix=")" suffixOverrides=",">-->
+<!--            <if test="id != null">-->
+<!--                #{id,jdbcType=VARCHAR},-->
+<!--            </if>-->
+<!--            <if test="code != null">-->
+<!--                #{code,jdbcType=VARCHAR},-->
+<!--            </if>-->
+<!--            <if test="name != null">-->
+<!--                #{name,jdbcType=VARCHAR},-->
+<!--            </if>-->
+<!--            <if test="birthDay != null">-->
+<!--                #{birthDay,jdbcType=DATE},-->
+<!--            </if>-->
+<!--            <if test="gender != null">-->
+<!--                #{gender,jdbcType=VARCHAR},-->
+<!--            </if>-->
+<!--            <if test="createTime != null">-->
+<!--                #{createTime,jdbcType=DATE},-->
+<!--            </if>-->
+<!--            <if test="status != null">-->
+<!--                #{status,jdbcType=VARCHAR},-->
+<!--            </if>-->
+<!--            <if test="isSysUser != null">-->
+<!--                #{isSysUser,jdbcType=DECIMAL},-->
+<!--            </if>-->
+<!--            <if test="isTemp != null">-->
+<!--                #{isTemp,jdbcType=DECIMAL},-->
+<!--            </if>-->
+<!--            <if test="abbName != null">-->
+<!--                #{abbName,jdbcType=LONGVARCHAR},-->
+<!--            </if>-->
+<!--            <if test="memo != null">-->
+<!--                #{memo,jdbcType=LONGVARCHAR},-->
+<!--            </if>-->
+<!--        </trim>-->
+<!--    </insert>-->
+<!--    <update id="updateByPrimaryKeySelective" parameterType="com.platform.core.user.pojo.UserTabWithBLOBs">-->
+<!--        update user_tab-->
+<!--        <set>-->
+<!--            <if test="code != null">-->
+<!--                CODE = #{code,jdbcType=VARCHAR},-->
+<!--            </if>-->
+<!--            <if test="name != null">-->
+<!--                NAME = #{name,jdbcType=VARCHAR},-->
+<!--            </if>-->
+<!--            <if test="birthDay != null">-->
+<!--                BIRTH_DAY = #{birthDay,jdbcType=DATE},-->
+<!--            </if>-->
+<!--            <if test="gender != null">-->
+<!--                GENDER = #{gender,jdbcType=VARCHAR},-->
+<!--            </if>-->
+<!--            <if test="createTime != null">-->
+<!--                CREATE_TIME = #{createTime,jdbcType=DATE},-->
+<!--            </if>-->
+<!--            <if test="status != null">-->
+<!--                STATUS = #{status,jdbcType=VARCHAR},-->
+<!--            </if>-->
+<!--            <if test="isSysUser != null">-->
+<!--                IS_SYS_USER = #{isSysUser,jdbcType=DECIMAL},-->
+<!--            </if>-->
+<!--            <if test="isTemp != null">-->
+<!--                IS_TEMP = #{isTemp,jdbcType=DECIMAL},-->
+<!--            </if>-->
+<!--            <if test="abbName != null">-->
+<!--                ABB_NAME = #{abbName,jdbcType=LONGVARCHAR},-->
+<!--            </if>-->
+<!--            <if test="memo != null">-->
+<!--                MEMO = #{memo,jdbcType=LONGVARCHAR},-->
+<!--            </if>-->
+<!--        </set>-->
+<!--        where ID = #{id,jdbcType=VARCHAR}-->
+<!--    </update>-->
+<!--    <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.platform.core.user.pojo.UserTabWithBLOBs">-->
+<!--    update user_tab-->
+<!--    set CODE = #{code,jdbcType=VARCHAR},-->
+<!--      NAME = #{name,jdbcType=VARCHAR},-->
+<!--      BIRTH_DAY = #{birthDay,jdbcType=DATE},-->
+<!--      GENDER = #{gender,jdbcType=VARCHAR},-->
+<!--      CREATE_TIME = #{createTime,jdbcType=DATE},-->
+<!--      STATUS = #{status,jdbcType=VARCHAR},-->
+<!--      IS_SYS_USER = #{isSysUser,jdbcType=DECIMAL},-->
+<!--      IS_TEMP = #{isTemp,jdbcType=DECIMAL},-->
+<!--      ABB_NAME = #{abbName,jdbcType=LONGVARCHAR},-->
+<!--      MEMO = #{memo,jdbcType=LONGVARCHAR}-->
+<!--    where ID = #{id,jdbcType=VARCHAR}-->
+<!--  </update>-->
+    <update id="updateByPrimaryKey" parameterType="com.project.model.user.pojo.UserTab">
+    update user_tab
+    set CODE = #{code,jdbcType=VARCHAR},
+      NAME = #{name,jdbcType=VARCHAR},
+      BIRTH_DAY = #{birthDay,jdbcType=DATE},
+      GENDER = #{gender,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=DATE},
+      STATUS = #{status,jdbcType=VARCHAR},
+      IS_SYS_USER = #{isSysUser,jdbcType=DECIMAL},
+      IS_TEMP = #{isTemp,jdbcType=DECIMAL}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

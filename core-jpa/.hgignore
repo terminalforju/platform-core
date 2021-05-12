@@ -1,0 +1,9 @@
+syntax: glob
+*\*.log
+*\*.log.*
+*/btm/
+*\target\
+.idea/
+*.iml
+*\rebel.xml
+target/

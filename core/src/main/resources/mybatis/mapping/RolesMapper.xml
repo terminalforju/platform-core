@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.model.role.mappers.RolesMapper">
+    <resultMap id="BaseResultMap" type="com.project.model.role.pojo.Roles">
+        <result column="NAME" jdbcType="VARCHAR" property="name"/>
+        <result column="REMARKS" jdbcType="VARCHAR" property="remarks"/>
+        <result column="ID" jdbcType="INTEGER" property="id"/>
+    </resultMap>
+    <insert id="insert" parameterType="com.project.model.role.pojo.Roles">
+    insert into ROLES (NAME, REMARKS, ID
+      )
+    values (#{name,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR}, #{id,jdbcType=INTEGER}
+      )
+  </insert>
+    <insert id="insertSelective" parameterType="com.project.model.role.pojo.Roles">
+        insert into ROLES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="name != null">
+                NAME,
+            </if>
+            <if test="remarks != null">
+                REMARKS,
+            </if>
+            <if test="id != null">
+                ID,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="remarks != null">
+                #{remarks,jdbcType=VARCHAR},
+            </if>
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+</mapper>

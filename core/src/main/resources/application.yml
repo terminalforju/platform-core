@@ -1,0 +1,40 @@
+spring:
+  thymeleaf:
+    mode: HTML5
+    encoding: UTF-8
+    cache: false
+
+  #数据库配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/platform?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    password: 123
+#    driver-class-name: org.h2.Driver
+#    url: jdbc:h2:./core
+#    username: sa
+#    password: 123
+#    schema: classpath:user_model.sql
+
+  #配置静态文件
+  mvc:
+    static-path-pattern: /static/**
+  resources:
+    static-locations: classpath:/static/
+  cache:
+    ehcache:
+      config: classpath:ehcache.xml
+
+mybatis:
+  mapper-locations: classpath:mybatis/mapping/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+#端口
+server:
+  port: 9090
+
+#  日志配置
+#logging:
+#  level:
+#  config: classpath:log4j.xml

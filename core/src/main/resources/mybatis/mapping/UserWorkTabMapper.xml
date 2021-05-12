@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.model.user.mappers.UserWorkTabMapper">
+    <resultMap id="BaseResultMap" type="com.project.model.user.pojo.UserWorkTab">
+        <id column="ID" jdbcType="VARCHAR" property="id"/>
+        <result column="OBJ_ID" jdbcType="VARCHAR" property="objId"/>
+        <result column="START_TIME" jdbcType="DATE" property="startTime"/>
+        <result column="END_TIME" jdbcType="DATE" property="endTime"/>
+        <result column="COMPANY" jdbcType="VARCHAR" property="company"/>
+        <result column="LOCATION" jdbcType="VARCHAR" property="location"/>
+    </resultMap>
+<!--    <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.platform.core.user.pojo.UserWorkTabWithBLOBs">-->
+<!--        <result column="ROLE" jdbcType="LONGVARCHAR" property="role"/>-->
+<!--        <result column="DEPT" jdbcType="LONGVARCHAR" property="dept"/>-->
+<!--    </resultMap>-->
+<!--    <sql id="Base_Column_List">-->
+<!--    ID, OBJ_ID, START_TIME, END_TIME, COMPANY, LOCATION-->
+<!--  </sql>-->
+<!--    <sql id="Blob_Column_List">-->
+<!--    ROLE, DEPT-->
+<!--  </sql>-->
+<!--    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">-->
+<!--        select-->
+<!--        <include refid="Base_Column_List"/>-->
+<!--        ,-->
+<!--        <include refid="Blob_Column_List"/>-->
+<!--        from user_work_tab-->
+<!--        where ID = #{id,jdbcType=VARCHAR}-->
+<!--    </select>-->
+<!--    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">-->
+<!--    delete from user_work_tab-->
+<!--    where ID = #{id,jdbcType=VARCHAR}-->
+<!--  </delete>-->
+<!--    <insert id="insert" parameterType="com.platform.core.user.pojo.UserWorkTabWithBLOBs">-->
+<!--    insert into user_work_tab (ID, OBJ_ID, START_TIME, -->
+<!--      END_TIME, COMPANY, LOCATION, -->
+<!--      ROLE, DEPT)-->
+<!--    values (#{id,jdbcType=VARCHAR}, #{objId,jdbcType=VARCHAR}, #{startTime,jdbcType=DATE}, -->
+<!--      #{endTime,jdbcType=DATE}, #{company,jdbcType=VARCHAR}, #{location,jdbcType=VARCHAR}, -->
+<!--      #{role,jdbcType=LONGVARCHAR}, #{dept,jdbcType=LONGVARCHAR})-->
+<!--  </insert>-->
+<!--    <insert id="insertSelective" parameterType="com.platform.core.user.pojo.UserWorkTabWithBLOBs">-->
+<!--        insert into user_work_tab-->
+<!--        <trim prefix="(" suffix=")" suffixOverrides=",">-->
+<!--            <if test="id != null">-->
+<!--                ID,-->
+<!--            </if>-->
+<!--            <if test="objId != null">-->
+<!--                OBJ_ID,-->
+<!--            </if>-->
+<!--            <if test="startTime != null">-->
+<!--                START_TIME,-->
+<!--            </if>-->
+<!--            <if test="endTime != null">-->
+<!--                END_TIME,-->
+<!--            </if>-->
+<!--            <if test="company != null">-->
+<!--                COMPANY,-->
+<!--            </if>-->
+<!--            <if test="location != null">-->
+<!--                LOCATION,-->
+<!--            </if>-->
+<!--            <if test="role != null">-->
+<!--                ROLE,-->
+<!--            </if>-->
+<!--            <if test="dept != null">-->
+<!--                DEPT,-->
+<!--            </if>-->
+<!--        </trim>-->
+<!--        <trim prefix="values (" suffix=")" suffixOverrides=",">-->
+<!--            <if test="id != null">-->
+<!--                #{id,jdbcType=VARCHAR},-->
+<!--            </if>-->
+<!--            <if test="objId != null">-->
+<!--                #{objId,jdbcType=VARCHAR},-->
+<!--            </if>-->
+<!--            <if test="startTime != null">-->
+<!--                #{startTime,jdbcType=DATE},-->
+<!--            </if>-->
+<!--            <if test="endTime != null">-->
+<!--                #{endTime,jdbcType=DATE},-->
+<!--            </if>-->
+<!--            <if test="company != null">-->
+<!--                #{company,jdbcType=VARCHAR},-->
+<!--            </if>-->
+<!--            <if test="location != null">-->
+<!--                #{location,jdbcType=VARCHAR},-->
+<!--            </if>-->
+<!--            <if test="role != null">-->
+<!--                #{role,jdbcType=LONGVARCHAR},-->
+<!--            </if>-->
+<!--            <if test="dept != null">-->
+<!--                #{dept,jdbcType=LONGVARCHAR},-->
+<!--            </if>-->
+<!--        </trim>-->
+<!--    </insert>-->
+<!--    <update id="updateByPrimaryKeySelective" parameterType="com.platform.core.user.pojo.UserWorkTabWithBLOBs">-->
+<!--        update user_work_tab-->
+<!--        <set>-->
+<!--            <if test="objId != null">-->
+<!--                OBJ_ID = #{objId,jdbcType=VARCHAR},-->
+<!--            </if>-->
+<!--            <if test="startTime != null">-->
+<!--                START_TIME = #{startTime,jdbcType=DATE},-->
+<!--            </if>-->
+<!--            <if test="endTime != null">-->
+<!--                END_TIME = #{endTime,jdbcType=DATE},-->
+<!--            </if>-->
+<!--            <if test="company != null">-->
+<!--                COMPANY = #{company,jdbcType=VARCHAR},-->
+<!--            </if>-->
+<!--            <if test="location != null">-->
+<!--                LOCATION = #{location,jdbcType=VARCHAR},-->
+<!--            </if>-->
+<!--            <if test="role != null">-->
+<!--                ROLE = #{role,jdbcType=LONGVARCHAR},-->
+<!--            </if>-->
+<!--            <if test="dept != null">-->
+<!--                DEPT = #{dept,jdbcType=LONGVARCHAR},-->
+<!--            </if>-->
+<!--        </set>-->
+<!--        where ID = #{id,jdbcType=VARCHAR}-->
+<!--    </update>-->
+<!--    <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.platform.core.user.pojo.UserWorkTabWithBLOBs">-->
+<!--    update user_work_tab-->
+<!--    set OBJ_ID = #{objId,jdbcType=VARCHAR},-->
+<!--      START_TIME = #{startTime,jdbcType=DATE},-->
+<!--      END_TIME = #{endTime,jdbcType=DATE},-->
+<!--      COMPANY = #{company,jdbcType=VARCHAR},-->
+<!--      LOCATION = #{location,jdbcType=VARCHAR},-->
+<!--      ROLE = #{role,jdbcType=LONGVARCHAR},-->
+<!--      DEPT = #{dept,jdbcType=LONGVARCHAR}-->
+<!--    where ID = #{id,jdbcType=VARCHAR}-->
+<!--  </update>-->
+    <update id="updateByPrimaryKey" parameterType="com.project.model.user.pojo.UserWorkTab">
+    update user_work_tab
+    set OBJ_ID = #{objId,jdbcType=VARCHAR},
+      START_TIME = #{startTime,jdbcType=DATE},
+      END_TIME = #{endTime,jdbcType=DATE},
+      COMPANY = #{company,jdbcType=VARCHAR},
+      LOCATION = #{location,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

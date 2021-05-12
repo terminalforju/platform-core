@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.model.user.mappers.UserContactTabMapper">
+    <resultMap id="BaseResultMap" type="com.project.model.user.pojo.UserContactTab">
+        <id column="ID" jdbcType="VARCHAR" property="id"/>
+        <result column="OBJID" jdbcType="VARCHAR" property="objid"/>
+        <result column="NAME" jdbcType="VARCHAR" property="name"/>
+        <result column="SHOW_VAL" jdbcType="VARCHAR" property="showVal"/>
+        <result column="VALUE" jdbcType="VARCHAR" property="value"/>
+        <result column="PRI" jdbcType="VARCHAR" property="pri"/>
+        <result column="CREATE_TIME" jdbcType="DATE" property="createTime"/>
+        <result column="ORDER_NUM" jdbcType="DECIMAL" property="orderNum"/>
+    </resultMap>
+    <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.project.model.user.pojo.UserContactTab">
+        <result column="MEMO" jdbcType="LONGVARCHAR" property="memo"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    ID, OBJID, NAME, SHOW_VAL, VALUE, PRI, CREATE_TIME, ORDER_NUM
+  </sql>
+    <sql id="Blob_Column_List">
+    MEMO
+  </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+        select
+        <include refid="Base_Column_List"/>
+        ,
+        <include refid="Blob_Column_List"/>
+        from user_contact_tab
+        where ID = #{id,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from user_contact_tab
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+    <insert id="insert" parameterType="com.project.model.user.pojo.UserContactTab">
+    insert into user_contact_tab (ID, OBJID, NAME, 
+      SHOW_VAL, VALUE, PRI, 
+      CREATE_TIME, ORDER_NUM, MEMO
+      )
+    values (#{id,jdbcType=VARCHAR}, #{objid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{showVal,jdbcType=VARCHAR}, #{value,jdbcType=VARCHAR}, #{pri,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=DATE}, #{orderNum,jdbcType=DECIMAL}, #{memo,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+    <insert id="insertSelective" parameterType="com.project.model.user.pojo.UserContactTab">
+        insert into user_contact_tab
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                ID,
+            </if>
+            <if test="objid != null">
+                OBJID,
+            </if>
+            <if test="name != null">
+                NAME,
+            </if>
+            <if test="showVal != null">
+                SHOW_VAL,
+            </if>
+            <if test="value != null">
+                VALUE,
+            </if>
+            <if test="pri != null">
+                PRI,
+            </if>
+            <if test="createTime != null">
+                CREATE_TIME,
+            </if>
+            <if test="orderNum != null">
+                ORDER_NUM,
+            </if>
+            <if test="memo != null">
+                MEMO,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="objid != null">
+                #{objid,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="showVal != null">
+                #{showVal,jdbcType=VARCHAR},
+            </if>
+            <if test="value != null">
+                #{value,jdbcType=VARCHAR},
+            </if>
+            <if test="pri != null">
+                #{pri,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=DATE},
+            </if>
+            <if test="orderNum != null">
+                #{orderNum,jdbcType=DECIMAL},
+            </if>
+            <if test="memo != null">
+                #{memo,jdbcType=LONGVARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.project.model.user.pojo.UserContactTab">
+        update user_contact_tab
+        <set>
+            <if test="objid != null">
+                OBJID = #{objid,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                NAME = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="showVal != null">
+                SHOW_VAL = #{showVal,jdbcType=VARCHAR},
+            </if>
+            <if test="value != null">
+                VALUE = #{value,jdbcType=VARCHAR},
+            </if>
+            <if test="pri != null">
+                PRI = #{pri,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                CREATE_TIME = #{createTime,jdbcType=DATE},
+            </if>
+            <if test="orderNum != null">
+                ORDER_NUM = #{orderNum,jdbcType=DECIMAL},
+            </if>
+            <if test="memo != null">
+                MEMO = #{memo,jdbcType=LONGVARCHAR},
+            </if>
+        </set>
+        where ID = #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.project.model.user.pojo.UserContactTab">
+    update user_contact_tab
+    set OBJID = #{objid,jdbcType=VARCHAR},
+      NAME = #{name,jdbcType=VARCHAR},
+      SHOW_VAL = #{showVal,jdbcType=VARCHAR},
+      VALUE = #{value,jdbcType=VARCHAR},
+      PRI = #{pri,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=DATE},
+      ORDER_NUM = #{orderNum,jdbcType=DECIMAL},
+      MEMO = #{memo,jdbcType=LONGVARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+    <update id="updateByPrimaryKey" parameterType="com.project.model.user.pojo.UserContactTab">
+    update user_contact_tab
+    set OBJID = #{objid,jdbcType=VARCHAR},
+      NAME = #{name,jdbcType=VARCHAR},
+      SHOW_VAL = #{showVal,jdbcType=VARCHAR},
+      VALUE = #{value,jdbcType=VARCHAR},
+      PRI = #{pri,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=DATE},
+      ORDER_NUM = #{orderNum,jdbcType=DECIMAL}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

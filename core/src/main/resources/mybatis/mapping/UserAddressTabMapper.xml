@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.model.user.mappers.UserAddressTabMapper">
+    <resultMap id="BaseResultMap" type="com.project.model.user.pojo.UserAddressTab">
+        <id column="ID" jdbcType="VARCHAR" property="id"/>
+        <result column="OBJ_ID" jdbcType="VARCHAR" property="objId"/>
+        <result column="NAME" jdbcType="VARCHAR" property="name"/>
+        <result column="NATION" jdbcType="VARCHAR" property="nation"/>
+        <result column="PROVINCE" jdbcType="VARCHAR" property="province"/>
+        <result column="CITY" jdbcType="VARCHAR" property="city"/>
+        <result column="BUILDING" jdbcType="VARCHAR" property="building"/>
+        <result column="FLOOR" jdbcType="VARCHAR" property="floor"/>
+        <result column="AREA" jdbcType="VARCHAR" property="area"/>
+        <result column="ROOM" jdbcType="VARCHAR" property="room"/>
+        <result column="ORDER_NUM" jdbcType="VARCHAR" property="orderNum"/>
+    </resultMap>
+    <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.project.model.user.pojo.UserAddressTab">
+        <result column="ADDRESS" jdbcType="LONGVARCHAR" property="address"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    ID, OBJ_ID, NAME, NATION, PROVINCE, CITY, BUILDING, FLOOR, AREA, ROOM, ORDER_NUM
+  </sql>
+    <sql id="Blob_Column_List">
+    ADDRESS
+  </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+        select
+        <include refid="Base_Column_List"/>
+        ,
+        <include refid="Blob_Column_List"/>
+        from user_address_tab
+        where ID = #{id,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from user_address_tab
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+    <insert id="insert" parameterType="com.project.model.user.pojo.UserAddressTab">
+    insert into user_address_tab (ID, OBJ_ID, NAME, 
+      NATION, PROVINCE, CITY, 
+      BUILDING, FLOOR, AREA, 
+      ROOM, ORDER_NUM, ADDRESS
+      )
+    values (#{id,jdbcType=VARCHAR}, #{objId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{nation,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, 
+      #{building,jdbcType=VARCHAR}, #{floor,jdbcType=VARCHAR}, #{area,jdbcType=VARCHAR}, 
+      #{room,jdbcType=VARCHAR}, #{orderNum,jdbcType=VARCHAR}, #{address,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+    <insert id="insertSelective" parameterType="com.project.model.user.pojo.UserAddressTab">
+        insert into user_address_tab
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                ID,
+            </if>
+            <if test="objId != null">
+                OBJ_ID,
+            </if>
+            <if test="name != null">
+                NAME,
+            </if>
+            <if test="nation != null">
+                NATION,
+            </if>
+            <if test="province != null">
+                PROVINCE,
+            </if>
+            <if test="city != null">
+                CITY,
+            </if>
+            <if test="building != null">
+                BUILDING,
+            </if>
+            <if test="floor != null">
+                FLOOR,
+            </if>
+            <if test="area != null">
+                AREA,
+            </if>
+            <if test="room != null">
+                ROOM,
+            </if>
+            <if test="orderNum != null">
+                ORDER_NUM,
+            </if>
+            <if test="address != null">
+                ADDRESS,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="objId != null">
+                #{objId,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="nation != null">
+                #{nation,jdbcType=VARCHAR},
+            </if>
+            <if test="province != null">
+                #{province,jdbcType=VARCHAR},
+            </if>
+            <if test="city != null">
+                #{city,jdbcType=VARCHAR},
+            </if>
+            <if test="building != null">
+                #{building,jdbcType=VARCHAR},
+            </if>
+            <if test="floor != null">
+                #{floor,jdbcType=VARCHAR},
+            </if>
+            <if test="area != null">
+                #{area,jdbcType=VARCHAR},
+            </if>
+            <if test="room != null">
+                #{room,jdbcType=VARCHAR},
+            </if>
+            <if test="orderNum != null">
+                #{orderNum,jdbcType=VARCHAR},
+            </if>
+            <if test="address != null">
+                #{address,jdbcType=LONGVARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.project.model.user.pojo.UserAddressTab">
+        update user_address_tab
+        <set>
+            <if test="objId != null">
+                OBJ_ID = #{objId,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                NAME = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="nation != null">
+                NATION = #{nation,jdbcType=VARCHAR},
+            </if>
+            <if test="province != null">
+                PROVINCE = #{province,jdbcType=VARCHAR},
+            </if>
+            <if test="city != null">
+                CITY = #{city,jdbcType=VARCHAR},
+            </if>
+            <if test="building != null">
+                BUILDING = #{building,jdbcType=VARCHAR},
+            </if>
+            <if test="floor != null">
+                FLOOR = #{floor,jdbcType=VARCHAR},
+            </if>
+            <if test="area != null">
+                AREA = #{area,jdbcType=VARCHAR},
+            </if>
+            <if test="room != null">
+                ROOM = #{room,jdbcType=VARCHAR},
+            </if>
+            <if test="orderNum != null">
+                ORDER_NUM = #{orderNum,jdbcType=VARCHAR},
+            </if>
+            <if test="address != null">
+                ADDRESS = #{address,jdbcType=LONGVARCHAR},
+            </if>
+        </set>
+        where ID = #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.project.model.user.pojo.UserAddressTab">
+    update user_address_tab
+    set OBJ_ID = #{objId,jdbcType=VARCHAR},
+      NAME = #{name,jdbcType=VARCHAR},
+      NATION = #{nation,jdbcType=VARCHAR},
+      PROVINCE = #{province,jdbcType=VARCHAR},
+      CITY = #{city,jdbcType=VARCHAR},
+      BUILDING = #{building,jdbcType=VARCHAR},
+      FLOOR = #{floor,jdbcType=VARCHAR},
+      AREA = #{area,jdbcType=VARCHAR},
+      ROOM = #{room,jdbcType=VARCHAR},
+      ORDER_NUM = #{orderNum,jdbcType=VARCHAR},
+      ADDRESS = #{address,jdbcType=LONGVARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+    <update id="updateByPrimaryKey" parameterType="com.project.model.user.pojo.UserAddressTab">
+    update user_address_tab
+    set OBJ_ID = #{objId,jdbcType=VARCHAR},
+      NAME = #{name,jdbcType=VARCHAR},
+      NATION = #{nation,jdbcType=VARCHAR},
+      PROVINCE = #{province,jdbcType=VARCHAR},
+      CITY = #{city,jdbcType=VARCHAR},
+      BUILDING = #{building,jdbcType=VARCHAR},
+      FLOOR = #{floor,jdbcType=VARCHAR},
+      AREA = #{area,jdbcType=VARCHAR},
+      ROOM = #{room,jdbcType=VARCHAR},
+      ORDER_NUM = #{orderNum,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>
